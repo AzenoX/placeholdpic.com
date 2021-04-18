@@ -40,5 +40,5 @@ Simple Image request 700x300 with a custom font and a custom text size:<br>
 
 ## Link
 
-You can visit this website as well<br>
+You can visit the website as well<br>
 [https://placeholdpic.com/](https://placeholdpic.com/)
