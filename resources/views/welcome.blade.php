@@ -50,7 +50,7 @@
 
                         <div>
                             <span class="font-bold text-purple-400">font</span>
-                            ➜ Url for a custom font.<span>Only .ttf</span>&nbsp;<span class="italic text-gray-400 text-purple-400">Default: <span class="font-bold">Montserrat</span></span>
+                            ➜ Url for a custom font. <span>Only .ttf are accepted</span>&nbsp;<span class="italic text-gray-400 text-purple-400">Default: <span class="font-bold">Montserrat</span></span>
                         </div>
 
                         <div>
