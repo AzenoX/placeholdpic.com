@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="9380713b-9352-4600-9fc6-e5267df52982" name="HeavenOVH">
+        <fileTransfer rootFolder="/var/www/placeholdpic.com" accessType="SFTP" host="vps717945.ovh.net" port="22" sshConfigId="827d8bd2-546b-4b7c-a134-3458a7b0532e" sshConfig="root@vps717945.ovh.net:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
