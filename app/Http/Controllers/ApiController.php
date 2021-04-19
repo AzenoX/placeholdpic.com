@@ -21,6 +21,14 @@ class ApiController extends Controller
             'image' => serialize($im),
         ]);
 
+
+        //Increments counter
+        $counterFilePath = './counter.txt';
+        $counter = file_get_contents($counterFilePath);
+        $counter++;
+        file_put_contents($counterFilePath, $counter);
+
+
         return response($content)->header('Content-Type', 'image/png');
 
     }
