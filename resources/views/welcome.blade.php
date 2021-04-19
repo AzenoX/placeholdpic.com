@@ -24,24 +24,24 @@
 
     </head>
 
-    <body>
+    <body class="bg-gray-800">
         <header class="bg-gradient-to-tr from-purple-700 to-purple-800 p-32 mb-20">
             <h1 class="text-5xl text-white font-bold text-center">Placehol<span style="letter-spacing: -12px" class="mr-3">dP</span>ic.com</h1>
             <p class="text-gray-300 text-xl text-center font-thin">Image placeholders for your website</p>
         </header>
 
         <main class="xl:mx-60 pb-20">
-            <h2 class="font-bold text-2xl">Explore Endpoints</h2>
+            <h2 class="font-bold text-2xl text-white">Explore Endpoints</h2>
             <br>
 
-            <div class="shadow-lg">
+            <div class="shadow-lg bg-gray-200">
 
-                <div class="flex justify-between items-center text-lg bg-gray-200 pr-4">
+                <div class="flex justify-between items-center text-lg bg-purple-700 pr-4">
                     <div class="bg-yellow-600 py-3 px-7 text-white font-bold">GET</div>
-                    <div>/<span class="font-bold">WIDTH</span>x<span class="font-bold">HEIGHT</span></div>
+                    <div class="text-white">/<span class="font-bold">WIDTH</span>x<span class="font-bold">HEIGHT</span></div>
                 </div>
 
-                <div class="bg-gray-800 text-white py-6 px-3">
+                <div class="bg-gray-900 text-white py-6 px-3">
 
                     <!--Parameters-->
                     <div class="mb-10">
