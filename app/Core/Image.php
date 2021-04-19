@@ -4,6 +4,8 @@
 namespace App\Core;
 
 
+use Exception;
+
 class Image{
 
     private $dimensions__;
@@ -61,7 +63,17 @@ class Image{
         $bgColor = self::convertHexToRGB($this->bgColor__ ?? 'e0e0e0');
         $textColor = self::convertHexToRGB($this->textColor__ ?? '333333');
         $fontSize = $this->fontSize__ ?? 40;
-        $fontUrl = ($this->fontUrl__ && strpos($this->fontUrl__, '.ttf') !== false) ? ((strpos($this->fontUrl__, '/') !== false) ? urlencode($this->fontUrl__) : $this->fontUrl__) : 'https://placeholdpic.com/Montserrat.ttf';
+        if($this->fontUrl__ !== null && $this->fontUrl__ !== ''){
+            if(strpos($this->fontUrl__, '/') !== false){
+                $fontUrl = $this->fontUrl__;
+            }
+            else{
+                $fontUrl = urldecode($this->fontUrl__);
+            }
+        }
+        else{
+            $fontUrl = 'https://placeholdpic.com/Montserrat.ttf';
+        }
 
 
         //Set text
@@ -73,7 +85,14 @@ class Image{
         $parts = explode('/', $fontUrl); //Split font url
         $fontName = explode('.', $parts[count($parts) - 1])[0]; //Get font name
         $fontExt = explode('.', $parts[count($parts) - 1])[1]; //Get font extension
-        $font = file_get_contents($fontUrl); //Download Font
+        try{
+            $font = file_get_contents($fontUrl); //Download Font
+        }
+        catch(Exception $e){
+            echo 'Font not found';
+            http_response_code(404);
+            die();
+        }
         $realFontPath = 'fonts/' . $id . '_' . $fontName . "." . $fontExt; //Build font path in folder
         file_put_contents($realFontPath, $font); //Put font in folder
         $type_space = imagettfbbox($fontSize, 0, $realFontPath, $text); //Make a box with the text
