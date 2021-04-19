@@ -21,7 +21,6 @@ class ApiController extends Controller
             'image' => serialize($im),
         ]);
 
-        //return response($content);
         return response($content)->header('Content-Type', 'image/png');
 
     }
