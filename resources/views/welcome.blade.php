@@ -22,6 +22,8 @@
         <!-- CSS -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
+        <script src="{{ asset('js/app.js') }}" defer></script>
+
     </head>
 
     <body class="bg-gray-800">
@@ -30,10 +32,11 @@
             <p class="text-gray-300 text-xl text-center font-thin">Image placeholders for your website</p>
         </header>
 
-        <main class="xl:mx-60 pb-20">
+        <main class="lg:mx-60 pb-20">
             <h2 class="font-bold text-2xl text-white">Explore Endpoints</h2>
             <br>
 
+            <!--Docs-->
             <div class="shadow-lg bg-gray-200">
 
                 <div class="flex justify-between items-center text-lg bg-purple-700 pr-4">
@@ -95,6 +98,73 @@
 
                 </div>
 
+            </div>
+
+            <br><br>
+
+            <!--Creation-->
+            <div class="shadow-lg bg-gray-200">
+
+                <div class="flex justify-center items-center text-lg bg-purple-700 pr-4">
+                    <p class="text-white py-3 text-center">Create your own link</p>
+                </div>
+
+                <div class="bg-gray-900 text-white py-6 px-3">
+
+                    <!--Form-->
+                    <div>
+                        <p class="font-bold text-lg mb-4">Fill these following fields in order to create your link:</p>
+
+                        <div class="mb-3">
+                            <p>Define image dimensions</p>
+                            <div>
+                                <input type="number" name="width" placeholder="Width" class="form-input outline-none text-black py-2 px-2">
+                                x
+                                <input type="number" name="height" placeholder="Height" class="form-input outline-none text-black py-2 px-2">
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <p>Define Background Color</p>
+                            <div>
+                                <input type="color" name="bgColor" value="#e0e0e0" class="form-input outline-none">
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <p>Define Text Color</p>
+                            <div>
+                                <input type="color" name="textColor" value="#333333" class="form-input outline-none">
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <p>Define Font url</p>
+                            <div>
+                                <input type="text" name="fontUrl" placeholder="Font Url (Only .ttf)" class="form-input outline-none text-black py-2 px-2 w-6/12">
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <p>Define Font url</p>
+                            <div>
+                                <input type="number" name="fontSize" placeholder="Font Size (Default: 40)" class="form-input outline-none text-black py-2 px-2">
+                            </div>
+                        </div>
+
+                        <br><br>
+
+                        <div class="mb-3">
+                            <p id="create_link" class="font-bold break-words">https://placeholdpic.com/<span id="create-width">600</span>x<span id="create-height">400</span>?bg=<span id="create-bgColor">e0e0e0</span>&text=<span id="create-textColor">333333</span>&font=<span
+                                    id="create-fontUrl">https%3A%2F%2Fplaceholdpic.com%2FMontserrat.ttf</span>&fsize=<span id="create-fontSize">40</span></p>
+                        </div>
+
+                        <a id="create-copy-btn" class="py-3 px-6 bg-purple-700 text-white mb-4 cursor-pointer">Copy Link</a>
+                        <a id="create-reset-btn" class="py-3 px-6 bg-purple-700 text-white mb-4 cursor-pointer">Reset Link</a>
+
+                    </div>
+
+                </div>
             </div>
         </main>
 

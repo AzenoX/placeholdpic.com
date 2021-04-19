@@ -19,5 +19,10 @@
         "sass": "^1.32.10",
         "sass-loader": "^11.0.1",
         "tailwindcss": "^2.1.1"
+    },
+    "dependencies": {
+        "toastify-js": "^1.10.0",
+        "ts-loader": "^9.0.0",
+        "typescript": "^4.2.4"
     }
 }
