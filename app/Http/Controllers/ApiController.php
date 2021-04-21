@@ -16,6 +16,7 @@ class ApiController extends Controller
         $im->setTextColor($request->input('text'));
         $im->setFontUrl($request->input('font'));
         $im->setFontSize($request->input('fsize'));
+        $im->setContent($request->input('content'));
 
         $content = view('api.index', [
             'image' => serialize($im),

@@ -19,4 +19,4 @@ Route::get('/', function () {
 
 
 Route::get('/{dims}', ['as' => 'api', 'uses' => 'App\Http\Controllers\ApiController@getIndex'])
-    ->where('dims', '[0-9]{1,}x+[0-9]{1,}?[a-z0-9&=]');
+    ->where('dims', '([0-9]+)x([0-9]+)(\?[a-z0-9&=])*');

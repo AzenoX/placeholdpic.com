@@ -109,59 +109,102 @@
                     <p class="text-white py-3 text-center">Create your own link</p>
                 </div>
 
-                <div class="bg-gray-900 text-white py-6 px-3">
+                <div class="bg-gray-900 text-white py-10 px-6 flex flex-col">
 
-                    <!--Form-->
-                    <div>
-                        <p class="font-bold text-lg mb-4">Fill these following fields in order to create your link:</p>
+                    <!--Form & Preview-->
+                    <div class="flex justify-around mb-10">
+                        <div class="flex-1 px-4">
+                            <p class="font-bold text-lg">Fill these following fields in order to create your link:</p>
+                            <div class="bg-white h-0.5 w-1/4 mb-8 mt-2"></div>
 
-                        <div class="mb-3">
-                            <p>Define image dimensions</p>
-                            <div>
-                                <input type="number" name="width" placeholder="Width" class="form-input outline-none text-black py-2 px-2">
-                                x
-                                <input type="number" name="height" placeholder="Height" class="form-input outline-none text-black py-2 px-2">
+                            <div class="mb-8">
+                                <p>Image dimensions</p>
+                                <div class="flex justify-between items-center">
+                                    <input type="number" name="width" data-default="600" placeholder="Width" class="form-input outline-none text-black py-2 px-2">
+                                    <span class="mx-2">x</span>
+                                    <input type="number" name="height" data-default="400" placeholder="Height" class="form-input outline-none text-black py-2 px-2">
+                                </div>
+                            </div>
+                            <div class="mb-8 w-full">
+                                <p>Text Content</p>
+                                <div>
+                                    <input type="text" name="content" placeholder="Text" data-default="%dimensions%" class="form-input outline-none text-black py-2 px-2 w-full">
+                                </div>
+                            </div>
+                            <div class="mb-8 flex justify-start">
+                                <div class="">
+                                    <p>Background Color</p>
+                                    <div>
+                                        <input type="color" id="bgColor" name="bgColor" data-default="#e0e0e0" value="#e0e0e0" class="form-input form-input--color outline-none">
+                                        <label for="bgColor" class="text-gray-500 italic">#e0e0e0</label>
+                                    </div>
+                                </div>
+                                <div class="ml-10">
+                                    <p>Text Color</p>
+                                    <div>
+                                        <input type="color" id="textColor" name="textColor" data-default="#333333" value="#333333" class="form-input form-input--color outline-none">
+                                        <label for="textColor" class="text-gray-500 italic">#333333</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-8 flex justify-between w-full">
+                                <div class="mr-2" style="flex: 5;">
+                                    <p>Font url</p>
+                                    <div class="relative">
+                                        <input type="text" data-active="select_url" name="fontUrl" placeholder="Font Url (Only .ttf)" data-default="https://placeholdpic.com/fonts/Montserrat.ttf" class="select_input form-input outline-none text-black py-2 px-2 w-full">
+                                        <div id="select_url" class="absolute bg-gray-50 py-3 px-2 w-full hidden">
+                                            <p class="text-black cursor-pointer w-full" data-value="https://placeholdpic.com/fonts/Montserrat.ttf">Montserrat</p>
+                                            <div class="bg-black w-full my-4" style="height: 1px;"></div>
+                                            <p class="text-black cursor-pointer w-full" data-value="https://placeholdpic.com/fonts/OpenSans.ttf">OpenSans</p>
+                                            <div class="bg-black w-full my-4" style="height: 1px;"></div>
+                                            <p class="text-black cursor-pointer w-full" data-value="https://placeholdpic.com/fonts/Raleway.ttf">Raleway</p>
+                                            <div class="bg-black w-full my-4" style="height: 1px;"></div>
+                                            <p class="text-black cursor-pointer w-full" data-value="https://placeholdpic.com/fonts/Roboto.ttf">Roboto</p>
+                                            <div class="bg-black w-full my-4" style="height: 1px;"></div>
+                                            <p class="text-black cursor-pointer w-full" data-value="https://placeholdpic.com/fonts/ZenDots.ttf">ZenDots</p>
+                                            <div class="bg-black w-full my-4" style="height: 1px;"></div>
+                                            <p class="text-black cursor-pointer w-full" data-value="https://placeholdpic.com/fonts/Fira.ttf">Fira</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ml-2" style="flex: 1;">
+                                    <p>Font Size</p>
+                                    <div>
+                                        <input type="number" name="fontSize" placeholder="Font Size" data-default="40" class="form-input outline-none text-black py-2 px-2 w-full" style="min-width: 90px;">
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="flex-1 px-4">
+                            <div class="preview xl:max-h-80">
+                                <img id="preview_img" src="https://placeholdpic.com/600x400?bg=e0e0e0&text=333333&font=https%3A%2F%2Fplaceholdpic.com%2Ffonts%2FMontserrat.ttf&fsize=40&content=%dimensions%" alt="preview">
                             </div>
                         </div>
+                    </div>
+
+
+                    <!--Btns-->
+                    <div class="pt-6">
+                        <p class="font-bold text-lg">Your link:</p>
+                        <div class="bg-white h-0.5 w-1/4 mb-8 mt-2"></div>
 
                         <div class="mb-3">
-                            <p>Define Background Color</p>
-                            <div>
-                                <input type="color" name="bgColor" value="#e0e0e0" class="form-input outline-none">
+                            <p id="create_link" class="font-bold" style="word-wrap: break-word; white-space: pre;">https://placeholdpic.com/<span id="create-width">600</span>x<span id="create-height">400</span>?<span style="white-space: break-spaces;">bg=<span id="create-bgColor">e0e0e0</span>&text=<span
+                                        id="create-textColor">333333</span>&font=<span
+                                        id="create-fontUrl">https://placeholdpic.com/fonts/Montserrat.ttf</span>&fsize=<span id="create-fontSize">40</span>&content=<span id="create-content">%dimensions%</span></span></p>
+                        </div>
+
+                        <br>
+
+                        <div class="flex justify-between items-center mb-4">
+                            <div class="flex justify-between items-center">
+                                <a id="create-copy-btn" class="py-3 px-6 bg-purple-700 text-white cursor-pointer">Copy Link</a>
+                                <p class="mx-4">or</p>
+                                <a id="create-select-btn" class="py-3 px-6 bg-purple-700 text-white cursor-pointer">Select Link</a>
                             </div>
+                            <a id="create-reset-btn" class="py-3 px-6 bg-purple-700 text-white cursor-pointer">Reset Link</a>
                         </div>
-
-                        <div class="mb-3">
-                            <p>Define Text Color</p>
-                            <div>
-                                <input type="color" name="textColor" value="#333333" class="form-input outline-none">
-                            </div>
-                        </div>
-
-                        <div class="mb-3">
-                            <p>Define Font url</p>
-                            <div>
-                                <input type="text" name="fontUrl" placeholder="Font Url (Only .ttf)" class="form-input outline-none text-black py-2 px-2 w-6/12">
-                            </div>
-                        </div>
-
-                        <div class="mb-3">
-                            <p>Define Font url</p>
-                            <div>
-                                <input type="number" name="fontSize" placeholder="Font Size (Default: 40)" class="form-input outline-none text-black py-2 px-2">
-                            </div>
-                        </div>
-
-                        <br><br>
-
-                        <div class="mb-3">
-                            <p id="create_link" class="font-bold break-words">https://placeholdpic.com/<span id="create-width">600</span>x<span id="create-height">400</span>?bg=<span id="create-bgColor">e0e0e0</span>&text=<span id="create-textColor">333333</span>&font=<span
-                                    id="create-fontUrl">https%3A%2F%2Fplaceholdpic.com%2FMontserrat.ttf</span>&fsize=<span id="create-fontSize">40</span></p>
-                        </div>
-
-                        <a id="create-copy-btn" class="py-3 px-6 bg-purple-700 text-white mb-4 cursor-pointer">Copy Link</a>
-                        <a id="create-reset-btn" class="py-3 px-6 bg-purple-700 text-white mb-4 cursor-pointer">Reset Link</a>
-
                     </div>
 
                 </div>

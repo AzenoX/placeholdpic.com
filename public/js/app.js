@@ -1849,10 +1849,88 @@ Object.defineProperty(exports, "__esModule", ({
 exports.updateField = void 0;
 
 function updateField(el, value) {
-  el.innerHTML = value;
+  el.innerHTML = encodeURI(value);
 }
 
 exports.updateField = updateField;
+
+/***/ }),
+
+/***/ "./resources/js/preview.ts":
+/*!*********************************!*\
+  !*** ./resources/js/preview.ts ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.updatePreview = void 0;
+
+function updatePreview() {
+  // @ts-ignore
+  var link = document.querySelector('#create_link') !== null ? document.querySelector('#create_link').textContent : 'https://placeholdpic.com/600x400?content=???';
+
+  if (/^https:\/\/placeholdpic.com\/(([0-9]+)x([0-9]+).*)$/.test(link)) {
+    fetch(link).then(function (response) {
+      return response.blob();
+    }).then(function (images) {
+      // @ts-ignore
+      document.querySelector('#preview_img').src = URL.createObjectURL(images) || 'https://placeholdpic.com/600x400?content=???';
+    });
+  } else {
+    // @ts-ignore
+    document.querySelector('#preview_img').src = 'https://placeholdpic.com/600x400?content=???';
+  }
+
+  return true;
+}
+
+exports.updatePreview = updatePreview;
+
+/***/ }),
+
+/***/ "./resources/js/select_input.ts":
+/*!**************************************!*\
+  !*** ./resources/js/select_input.ts ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+
+var preview_1 = __webpack_require__(/*! ./preview */ "./resources/js/preview.ts");
+
+var form_create_1 = __webpack_require__(/*! ./form_create */ "./resources/js/form_create.ts");
+
+var selectInputs = document.querySelectorAll('.select_input');
+selectInputs.forEach(function (el) {
+  var selectMenu = document.querySelector('#' + el.getAttribute('data-active'));
+  var selectInputs_Texts = selectMenu.querySelectorAll('p');
+  selectInputs_Texts.forEach(function (el_t) {
+    el_t.addEventListener('click', function () {
+      var value = el_t.getAttribute('data-value');
+      el.value = value;
+      form_create_1.updateField(document.querySelector("#create-fontUrl"), value);
+      preview_1.updatePreview();
+    });
+  });
+  el.addEventListener('focus', function () {
+    selectMenu.style.display = 'block';
+  });
+  el.addEventListener('blur', function () {
+    setTimeout(function () {
+      selectMenu.style.display = 'none';
+    }, 100);
+  });
+});
 
 /***/ }),
 
@@ -1872,7 +1950,29 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
 
+var preview = __webpack_require__(/*! ./preview */ "./resources/js/preview.ts");
+
 var form_create = __webpack_require__(/*! ./form_create */ "./resources/js/form_create.ts");
+
+__webpack_require__(/*! ./select_input */ "./resources/js/select_input.ts");
+/*=======================================
+*       Limit number of requests
+=======================================*/
+
+
+var canRequest = true;
+
+function updateCanRequest() {
+  canRequest = false;
+  setTimeout(function () {
+    canRequest = true;
+    preview.updatePreview();
+  }, 100);
+}
+/*=======================================
+*       Input events handlers
+=======================================*/
+
 
 var formInputs = document.querySelectorAll('.form-input');
 formInputs.forEach(function (el) {
@@ -1880,11 +1980,70 @@ formInputs.forEach(function (el) {
     var name = el.getAttribute('name');
     var target = document.querySelector("#create-".concat(name));
     form_create.updateField(target, el.value.replaceAll('#', ''));
+
+    if (el.classList.contains('form-input--color')) {
+      el.nextElementSibling.textContent = el.value;
+    }
+
+    if (canRequest) {
+      updateCanRequest();
+      preview.updatePreview();
+    }
+  });
+  el.addEventListener('focus', function () {
+    if (!el.classList.contains('form-input--color')) {
+      el.select();
+    }
   });
 });
+/*=======================================
+*   Reset input with their default values
+=======================================*/
+
+function resetFields(formInputs) {
+  formInputs.forEach(function (el) {
+    var defaultValue = el.getAttribute('data-default');
+    el.value = defaultValue;
+
+    if (el.classList.contains('form-input--color')) {
+      el.nextElementSibling.textContent = el.value;
+    }
+  });
+}
+
+resetFields(formInputs);
+/*=======================================
+*       Image error handler
+=======================================*/
+
+var preview_img = document.querySelector('#preview_img');
+preview_img.addEventListener('error', function () {
+  preview_img.src = 'https://placeholdpic.com/600x400?content=???';
+});
+/*=======================================
+*       Buttons handlers
+=======================================*/
+
 var createBtnCopy = document.querySelector('#create-copy-btn');
 var createLink = document.querySelector('#create_link');
-createBtnCopy.addEventListener('click', function (el) {
+var createBtnSelect = document.querySelector('#create-select-btn');
+var createBtnReset = document.querySelector('#create-reset-btn');
+
+function selectText(id) {
+  var el = document.getElementById(id);
+  var sel = window.getSelection();
+
+  if (sel.toString() === '') {
+    window.setTimeout(function () {
+      var range = document.createRange();
+      range.selectNodeContents(el);
+      sel.removeAllRanges();
+      sel.addRange(range);
+    }, 1);
+  }
+}
+
+createBtnCopy.addEventListener('click', function () {
   navigator.clipboard.writeText(createLink.innerText);
   toastify_js__WEBPACK_IMPORTED_MODULE_0___default()({
     text: "Link Copied",
@@ -1895,9 +2054,16 @@ createBtnCopy.addEventListener('click', function (el) {
     stopOnFocus: true
   }).showToast();
 });
-var createBtnReset = document.querySelector('#create-reset-btn');
+createBtnSelect.addEventListener('click', function () {
+  selectText('create_link');
+});
 createBtnReset.addEventListener('click', function () {
-  createLink.innerHTML = 'https://placeholdpic.com/<span id="create-width">600</span>x<span id="create-height">400</span>?bg=<span id="create-bgColor">e0e0e0</span>&text=<span id="create-textColor">333333</span>&font=<span' + ' id="create-fontUrl">https%3A%2F%2Fplaceholdpic.com%2FMontserrat.ttf</span>&fsize=<span id="create-fontSize">40</span>';
+  createLink.innerHTML = 'https://placeholdpic.com/<span id="create-width">600</span>x<span id="create-height">400</span>?<span style="white-space: break-spaces;">bg=<span id="create-bgColor">e0e0e0</span>&text=<span id="create-textColor">333333</span>&font=<span' + ' id="create-fontUrl">https://placeholdpic.com/fonts/Montserrat.ttf</span>&fsize=<span id="create-fontSize">40</span>&content=<span id="create-content">%dimensions%</span></span>';
+  formInputs.forEach(function (el) {
+    el.value = '';
+  });
+  resetFields(formInputs);
+  preview.updatePreview();
 });
 
 /***/ }),
