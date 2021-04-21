@@ -32,7 +32,7 @@
             <p class="text-gray-300 text-xl text-center font-thin">Image placeholders for your website</p>
         </header>
 
-        <main class="lg:mx-60 pb-20">
+        <main class="xl:mx-60 pb-20">
             <h2 class="font-bold text-2xl text-white">Explore Endpoints</h2>
             <br>
 
@@ -120,9 +120,9 @@
                             <div class="mb-8">
                                 <p>Image dimensions</p>
                                 <div class="flex justify-between items-center">
-                                    <input type="number" name="width" data-default="600" placeholder="Width" class="form-input outline-none text-black py-2 px-2">
+                                    <input type="number" name="width" data-default="600" placeholder="Width" class="form-input outline-none text-black py-2 px-2 w-5/12">
                                     <span class="mx-2">x</span>
-                                    <input type="number" name="height" data-default="400" placeholder="Height" class="form-input outline-none text-black py-2 px-2">
+                                    <input type="number" name="height" data-default="400" placeholder="Height" class="form-input outline-none text-black py-2 px-2 w-5/12">
                                 </div>
                             </div>
                             <div class="mb-8 w-full">
