@@ -93,19 +93,6 @@ const createLink = document.querySelector('#create_link');
 const createBtnSelect = document.querySelector('#create-select-btn');
 const createBtnReset = document.querySelector('#create-reset-btn');
 
-function selectText(id){
-    const el = document.getElementById(id);
-    const sel = window.getSelection();
-    if(sel.toString() === ''){
-        window.setTimeout(function(){
-            const range = document.createRange();
-            range.selectNodeContents(el);
-            sel.removeAllRanges();
-            sel.addRange(range);
-        },1);
-    }
-}
-
 createBtnCopy.addEventListener('click', () => {
     navigator.clipboard.writeText(createLink.innerText);
 
@@ -119,7 +106,17 @@ createBtnCopy.addEventListener('click', () => {
     }).showToast();
 });
 createBtnSelect.addEventListener('click', () => {
-    selectText('create_link');
+    const el = document.querySelector('#create_link');
+    const sel = window.getSelection();
+
+    if(sel.toString() === ''){
+        window.setTimeout(function(){
+            const range = document.createRange();
+            range.selectNodeContents(el);
+            sel.removeAllRanges();
+            sel.addRange(range);
+        },1);
+    }
 });
 createBtnReset.addEventListener('click', () => {
     createLink.innerHTML = 'https://placeholdpic.com/<span id="create-width">600</span>x<span id="create-height">400</span>?<span style="white-space: break-spaces;">bg=<span id="create-bgColor">e0e0e0</span>&text=<span id="create-textColor">333333</span>&font=<span' +

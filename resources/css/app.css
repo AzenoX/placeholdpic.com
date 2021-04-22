@@ -8,6 +8,18 @@
     .wrap-word{
         word-wrap: break-word;
     }
+
+    .wrap-all{
+        word-break: break-all;
+    }
+
+    .whitespace-breakspaces{
+        white-space: break-spaces;
+    }
+
+    .purple-shadow{
+        box-shadow: 10px 10px 0 0 #6d28d9;
+    }
 }
 
 

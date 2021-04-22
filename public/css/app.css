@@ -589,6 +589,18 @@ video {
   word-wrap: break-word;
 }
 
+.wrap-all{
+  word-break: break-all;
+}
+
+.whitespace-breakspaces{
+  white-space: break-spaces;
+}
+
+.purple-shadow{
+  box-shadow: 10px 10px 0 0 #6d28d9;
+}
+
 .space-y-0 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;
   margin-top: calc(0px * calc(1 - var(--tw-space-y-reverse)));

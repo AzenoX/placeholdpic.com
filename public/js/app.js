@@ -2029,21 +2029,6 @@ var createBtnCopy = document.querySelector('#create-copy-btn');
 var createLink = document.querySelector('#create_link');
 var createBtnSelect = document.querySelector('#create-select-btn');
 var createBtnReset = document.querySelector('#create-reset-btn');
-
-function selectText(id) {
-  var el = document.getElementById(id);
-  var sel = window.getSelection();
-
-  if (sel.toString() === '') {
-    window.setTimeout(function () {
-      var range = document.createRange();
-      range.selectNodeContents(el);
-      sel.removeAllRanges();
-      sel.addRange(range);
-    }, 1);
-  }
-}
-
 createBtnCopy.addEventListener('click', function () {
   navigator.clipboard.writeText(createLink.innerText);
   toastify_js__WEBPACK_IMPORTED_MODULE_0___default()({
@@ -2056,7 +2041,17 @@ createBtnCopy.addEventListener('click', function () {
   }).showToast();
 });
 createBtnSelect.addEventListener('click', function () {
-  selectText('create_link');
+  var el = document.querySelector('#create_link');
+  var sel = window.getSelection();
+
+  if (sel.toString() === '') {
+    window.setTimeout(function () {
+      var range = document.createRange();
+      range.selectNodeContents(el);
+      sel.removeAllRanges();
+      sel.addRange(range);
+    }, 1);
+  }
 });
 createBtnReset.addEventListener('click', function () {
   createLink.innerHTML = 'https://placeholdpic.com/<span id="create-width">600</span>x<span id="create-height">400</span>?<span style="white-space: break-spaces;">bg=<span id="create-bgColor">e0e0e0</span>&text=<span id="create-textColor">333333</span>&font=<span' + ' id="create-fontUrl">https://placeholdpic.com/fonts/Montserrat.ttf</span>&fsize=<span id="create-fontSize">40</span>&content=<span id="create-content">%dimensions%</span></span>';

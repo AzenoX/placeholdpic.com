@@ -4,6 +4,8 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
+        <meta name="description" content="Image placeholders for your website. Customize everything, like text, colors, font, etc...">
+
         <title>PlaceholdPic.com</title>
 
         <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
@@ -74,24 +76,40 @@
                     <div>
                         <p class="font-bold text-lg mb-4">Examples:</p>
 
-                        <div class="mb-3">
+                        <div class="mb-10">
                             <p class="font-bold">Simple Image request 600x400:</p>
-                            <p class="text-purple-400"><a href="https://placeholdpic.com/600x400" target="_blank">https://placeholdpic.com/600x400</a></p>
+                            <div class="bg-white h-0.5 w-1/4 mb-8 mt-2"></div>
+                            <div class="flex justify-start items-center mt-1 flex-col lg:flex-row">
+                                <img class="h-24 mr-10 purple-shadow" alt="Example 1" src="https://placeholdpic.com/600x400">
+                                <p class="text-purple-400"><a href="https://placeholdpic.com/600x400" target="_blank" class="whitespace-breakspaces wrap-all">https://placeholdpic.com/600x400</a></p>
+                            </div>
                         </div>
 
-                        <div class="mb-3">
+                        <div class="mb-10">
                             <p class="font-bold">Simple Image request 600x400 with a purple background:</p>
-                            <p class="text-purple-400"><a href="https://placeholdpic.com/600x400?bg=6D28D9" target="_blank">https://placeholdpic.com/600x400?bg=6D28D9</a></p>
+                            <div class="bg-white h-0.5 w-1/4 mb-8 mt-2"></div>
+                            <div class="flex justify-start items-center mt-1 flex-col lg:flex-row">
+                                <img class="h-24 mr-10 purple-shadow" alt="Example 2" src="https://placeholdpic.com/600x400?bg=6D28D9">
+                                <p class="text-purple-400"><a href="https://placeholdpic.com/600x400?bg=6D28D9" target="_blank" class="whitespace-breakspaces wrap-all">https://placeholdpic.com/600x400?bg=6D28D9</a></p>
+                            </div>
                         </div>
 
-                        <div class="mb-3">
-                            <p class="font-bold">Simple Image request 600x400 with a purple background and light text:</p>
-                            <p class="text-purple-400"><a href="https://placeholdpic.com/600x400?bg=6D28D9&text=e0e0e0" target="_blank">https://placeholdpic.com/600x400?bg=6D28D9&text=e0e0e0</a></p>
+                        <div class="mb-10">
+                            <p class="font-bold text-">Simple Image request 600x400 with a purple background and light text:</p>
+                            <div class="bg-white h-0.5 w-1/4 mb-8 mt-2"></div>
+                            <div class="flex justify-start items-center mt-1 flex-col lg:flex-row">
+                                <img class="h-24 mr-10 purple-shadow" alt="Example 3" src="https://placeholdpic.com/600x400?bg=6D28D9&text=e0e0e0">
+                                <p class="text-purple-400"><a href="https://placeholdpic.com/600x400?bg=6D28D9&text=e0e0e0" target="_blank" class="whitespace-breakspaces wrap-all">https://placeholdpic.com/600x400?bg=6D28D9&text=e0e0e0</a></p>
+                            </div>
                         </div>
 
-                        <div class="mb-3">
+                        <div class="mb-10">
                             <p class="font-bold">Simple Image request 700x300 with a custom font and a custom text size:</p>
-                            <p class="text-purple-400"><a href="https://placeholdpic.com/700x300?font=http%3A%2F%2Fplaceholdpic.com%2FZenDots.ttf&fsize=70" target="_blank">https://placeholdpic.com/700x300?font=http%3A%2F%2Fplaceholdpic.com%2FZenDots.ttf&fsize=70</a></p>
+                            <div class="bg-white h-0.5 w-1/4 mb-8 mt-2"></div>
+                            <div class="flex justify-start items-center mt-1 flex-col lg:flex-row">
+                                <img class="h-24 mr-10 purple-shadow" alt="Example 4" src="https://placeholdpic.com/700x300?font=http%3A%2F%2Fplaceholdpic.com%2FZenDots.ttf&fsize=70">
+                                <p class="text-purple-400"><a href="https://placeholdpic.com/700x300?font=http%3A%2F%2Fplaceholdpic.com%2FZenDots.ttf&fsize=70" target="_blank" class="whitespace-breakspaces wrap-all">https://placeholdpic.com/700x300?font=http%3A%2F%2Fplaceholdpic.com%2FZenDots.ttf&fsize=70</a></p>
+                            </div>
                         </div>
 
                     </div>
@@ -190,7 +208,7 @@
                         <div class="bg-white h-0.5 w-1/4 mb-8 mt-2"></div>
 
                         <div class="mb-3">
-                            <p id="create_link" class="font-bold whitespace-pre wrap-word">https://placeholdpic.com/<span id="create-width">600</span>x<span id="create-height">400</span>?<span style="white-space: break-spaces;">bg=<span
+                            <p id="create_link" class="font-bold whitespace-pre wrap-word">https://placeholdpic.com/<span id="create-width">600</span>x<span id="create-height">400</span>?<span class="whitespace-breakspaces">bg=<span
                                         id="create-bgColor">e0e0e0</span>&text=<span
                                         id="create-textColor">333333</span>&font=<span
                                         id="create-fontUrl">https://placeholdpic.com/fonts/Montserrat.ttf</span>&fsize=<span id="create-fontSize">40</span>&content=<span id="create-content">%dimensions%</span></span></p>
@@ -200,11 +218,11 @@
 
                         <div class="flex justify-between items-center mb-4 flex-col lg:flex-row">
                             <div class="flex justify-between items-center">
-                                <a id="create-copy-btn" class="py-3 px-6 bg-purple-700 text-white cursor-pointer">Copy&nbsp;Link</a>
+                                <a id="create-copy-btn" class="py-3 px-6 bg-purple-700 text-white cursor-pointer whitespace-nowrap">Copy Link</a>
                                 <p class="mx-4">or</p>
-                                <a id="create-select-btn" class="py-3 px-6 bg-purple-700 text-white cursor-pointer">Select&nbsp;Link</a>
+                                <a id="create-select-btn" class="py-3 px-6 bg-purple-700 text-white cursor-pointer whitespace-nowrap">Select Link</a>
                             </div>
-                            <a id="create-reset-btn" class="py-3 px-6 bg-indigo-900 text-white cursor-pointer ml-2 mt-6 lg:mt-0">Reset&nbsp;Link</a>
+                            <a id="create-reset-btn" class="py-3 px-6 bg-indigo-900 text-white cursor-pointer whitespace-nowrap ml-2 mt-6 lg:mt-0">Reset Link</a>
                         </div>
                     </div>
 
