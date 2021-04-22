@@ -31857,6 +31857,36 @@ video {
   }
 }
 
+/*==============================================
+
+        Custom Scrollbar
+
+==============================================*/
+
+/* width */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Track */
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+
+::-webkit-scrollbar-thumb {
+  background: #EA580C;
+}
+
+/* Handle on hover */
+
+::-webkit-scrollbar-thumb:hover {
+  background: #C2410C;
+}
+
 *{
   font-family: 'Montserrat', sans-serif;
   box-sizing: border-box;

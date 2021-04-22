@@ -46,71 +46,98 @@
                     <div class="text-white">/<span class="font-bold">WIDTH</span>x<span class="font-bold">HEIGHT</span></div>
                 </div>
 
-                <div class="bg-gray-900 text-white py-6 px-3">
+                <div class="bg-gray-900 text-white py-6 px-5">
 
                     <!--Parameters-->
                     <div class="mb-10">
+
                         <p class="font-bold text-lg mb-4">Optional Parameters:</p>
-                        <div>
-                            <span class="font-bold text-purple-400">bg</span>
-                            ➜ Hexadecimal color for background&nbsp;<span class="italic text-gray-400 text-purple-400">Default: <span class="font-bold">e0e0e0</span></span>
-                        </div>
 
-                        <div>
-                            <span class="font-bold text-purple-400">text</span>
-                            ➜ Hexadecimal color for text&nbsp;<span class="italic text-gray-400 text-purple-400">Default: <span class="font-bold">333333</span></span>
-                        </div>
+                        <?php
 
-                        <div>
-                            <span class="font-bold text-purple-400">font</span>
-                            ➜ Url for a custom font. <span>Only .ttf are accepted</span>&nbsp;<span class="italic text-gray-400 text-purple-400">Default: <span class="font-bold">Montserrat</span></span>
-                        </div>
+                        $parameters = [
+                            [
+                                'title' => 'bg',
+                                'desc' => 'Hexadecimal color for background.',
+                                'default' => 'e0e0e0',
+                            ],
+                            [
+                                'title' => 'text',
+                                'desc' => 'Hexadecimal color for text.',
+                                'default' => '333333',
+                            ],
+                            [
+                                'title' => 'font',
+                                'desc' => 'Url for a custom font. Only .ttf are accepted.',
+                                'default' => 'Montserrat',
+                            ],
+                            [
+                                'title' => 'fsize',
+                                'desc' => 'Size for the text',
+                                'default' => '40',
+                            ],
+                            [
+                                'title' => 'content',
+                                'desc' => 'Displayed text',
+                                'default' => '%dimensions%',
+                            ],
+                        ];
 
-                        <div>
-                            <span class="font-bold text-purple-400">fsize</span>
-                            ➜ Size for the text&nbsp;<span class="italic text-gray-400 text-purple-400">Default: <span class="font-bold">40</span></span>
-                        </div>
+                        ?>
+
+                        <?php foreach($parameters as $parameter): ?>
+                            <div>
+                                <p>
+                                    <span class="font-bold text-purple-400"><?= $parameter['title'] ?></span>
+                                ➜ <?= $parameter['desc'] ?>&nbsp;<span class="italic text-gray-400 text-purple-400">Default: <span class="font-bold"><?= $parameter['default'] ?></span></span>
+                                </p>
+                            </div>
+                        <?php endforeach; ?>
+
                     </div>
 
                     <!--Examples-->
                     <div>
+                        <?php
+
+                        $examples = [
+                            [
+                                'title' => 'Simple Image request 600x400:',
+                                'link' => 'https://placeholdpic.com/600x400',
+                            ],
+                            [
+                                'title' => 'Simple Image request 600x400 with a purple background:',
+                                'link' => 'https://placeholdpic.com/600x400?bg=A78BFA',
+                            ],
+                            [
+                                'title' => 'Simple Image request 600x400 with a custom text:',
+                                'link' => 'https://placeholdpic.com/600x400?content=Hello%20World',
+                            ],
+                            [
+                                'title' => 'Simple Image request 600x400 with a purple background and light text:',
+                                'link' => 'https://placeholdpic.com/600x400?bg=6D28D9&text=e0e0e0',
+                            ],
+                            [
+                                'title' => 'Simple Image request 700x300 with a custom font and a custom text size:',
+                                'link' => 'https://placeholdpic.com/700x300?font=http%3A%2F%2Fplaceholdpic.com%2FZenDots.ttf&fsize=70',
+                            ],
+                        ];
+
+                        ?>
+
+
                         <p class="font-bold text-lg mb-4">Examples:</p>
 
-                        <div class="mb-10">
-                            <p class="font-bold">Simple Image request 600x400:</p>
-                            <div class="bg-white h-0.5 w-1/4 mb-8 mt-2"></div>
-                            <div class="flex justify-start items-center mt-1 flex-col lg:flex-row">
-                                <img class="h-24 mr-10 purple-shadow" alt="Example 1" src="https://placeholdpic.com/600x400">
-                                <p class="text-purple-400"><a href="https://placeholdpic.com/600x400" target="_blank" class="whitespace-breakspaces wrap-all">https://placeholdpic.com/600x400</a></p>
+                        <?php foreach($examples as $example): ?>
+                            <div class="mb-10">
+                                <p class="font-bold"><?= $example['title'] ?></p>
+                                <div class="bg-white h-0.5 w-1/4 mb-8 mt-2"></div>
+                                <div class="flex justify-start items-center mt-1 flex-col lg:flex-row">
+                                    <img class="h-24 mr-10 purple-shadow mb-4 lg:mb-0" alt="Example" src="<?= $example['link'] ?>">
+                                    <p class="text-purple-400"><a href="<?= $example['link'] ?>" target="_blank" class="whitespace-breakspaces wrap-all"><?= $example['link'] ?></a></p>
+                                </div>
                             </div>
-                        </div>
-
-                        <div class="mb-10">
-                            <p class="font-bold">Simple Image request 600x400 with a purple background:</p>
-                            <div class="bg-white h-0.5 w-1/4 mb-8 mt-2"></div>
-                            <div class="flex justify-start items-center mt-1 flex-col lg:flex-row">
-                                <img class="h-24 mr-10 purple-shadow" alt="Example 2" src="https://placeholdpic.com/600x400?bg=6D28D9">
-                                <p class="text-purple-400"><a href="https://placeholdpic.com/600x400?bg=6D28D9" target="_blank" class="whitespace-breakspaces wrap-all">https://placeholdpic.com/600x400?bg=6D28D9</a></p>
-                            </div>
-                        </div>
-
-                        <div class="mb-10">
-                            <p class="font-bold text-">Simple Image request 600x400 with a purple background and light text:</p>
-                            <div class="bg-white h-0.5 w-1/4 mb-8 mt-2"></div>
-                            <div class="flex justify-start items-center mt-1 flex-col lg:flex-row">
-                                <img class="h-24 mr-10 purple-shadow" alt="Example 3" src="https://placeholdpic.com/600x400?bg=6D28D9&text=e0e0e0">
-                                <p class="text-purple-400"><a href="https://placeholdpic.com/600x400?bg=6D28D9&text=e0e0e0" target="_blank" class="whitespace-breakspaces wrap-all">https://placeholdpic.com/600x400?bg=6D28D9&text=e0e0e0</a></p>
-                            </div>
-                        </div>
-
-                        <div class="mb-10">
-                            <p class="font-bold">Simple Image request 700x300 with a custom font and a custom text size:</p>
-                            <div class="bg-white h-0.5 w-1/4 mb-8 mt-2"></div>
-                            <div class="flex justify-start items-center mt-1 flex-col lg:flex-row">
-                                <img class="h-24 mr-10 purple-shadow" alt="Example 4" src="https://placeholdpic.com/700x300?font=http%3A%2F%2Fplaceholdpic.com%2FZenDots.ttf&fsize=70">
-                                <p class="text-purple-400"><a href="https://placeholdpic.com/700x300?font=http%3A%2F%2Fplaceholdpic.com%2FZenDots.ttf&fsize=70" target="_blank" class="whitespace-breakspaces wrap-all">https://placeholdpic.com/700x300?font=http%3A%2F%2Fplaceholdpic.com%2FZenDots.ttf&fsize=70</a></p>
-                            </div>
-                        </div>
+                        <?php endforeach; ?>
 
                     </div>
 
@@ -135,6 +162,7 @@
                             <p class="font-bold text-lg">Fill these following fields in order to create your link:</p>
                             <div class="bg-white h-0.5 w-1/4 mb-8 mt-2"></div>
 
+                            <!--Inputs-->
                             <div class="mb-8">
                                 <p>Image dimensions</p>
                                 <div class="flex justify-between items-center">
@@ -194,9 +222,11 @@
                             </div>
 
                         </div>
+
+                        <!--Preview-->
                         <div class="flex-1 px-4">
                             <div class="preview xl:max-h-80 flex justify-center">
-                                <img id="preview_img" src="https://placeholdpic.com/600x400?bg=e0e0e0&text=333333&font=https%3A%2F%2Fplaceholdpic.com%2Ffonts%2FMontserrat.ttf&fsize=40&content=%dimensions%" alt="preview">
+                                <img id="preview_img" src="https://placeholdpic.com/600x400?bg=e0e0e0&text=333333&font=https%3A%2F%2Fplaceholdpic.com%2Ffonts%2FMontserrat.ttf&fsize=40&content=%dimensions%" alt="preview" class="w-full h-80 object-contain">
                             </div>
                         </div>
                     </div>
@@ -228,6 +258,7 @@
 
                 </div>
             </div>
+
         </main>
 
         <footer class="flex justify-center bg-purple-800 py-3 text-white text-lg">
