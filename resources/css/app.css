@@ -3,6 +3,24 @@
 @tailwind utilities;
 
 
+
+@layer components {
+    .wrap-word{
+        word-wrap: break-word;
+    }
+}
+
+
+.letters-merged{
+    letter-spacing: 0;
+}
+@media screen and (min-width: 1024px){
+    .letters-merged{
+        letter-spacing: -12px;
+    }
+}
+
+
 *{
     font-family: 'Montserrat', sans-serif;
 

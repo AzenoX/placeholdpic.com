@@ -4,6 +4,7 @@ import {updateField} from "./form_create";
 const selectInputs = document.querySelectorAll('.select_input');
 selectInputs.forEach((el) => {
     const selectMenu : HTMLInputElement = <HTMLInputElement> document.querySelector(('#' + el.getAttribute('data-active')));
+    selectMenu.style.display = 'none';
 
 
     const selectInputs_Texts = selectMenu.querySelectorAll('p');
@@ -14,16 +15,19 @@ selectInputs.forEach((el) => {
 
             updateField(<HTMLInputElement>document.querySelector(`#create-fontUrl`), value);
             updatePreview();
+
+
+            selectMenu.style.display = 'none';
         });
     });
 
-    el.addEventListener('focus', () => {
-        selectMenu.style.display = 'block';
-    });
-    el.addEventListener('blur', () => {
-        setTimeout(() => {
+    el.addEventListener('click', () => {
+        if(selectMenu.style.display === 'none'){
+            selectMenu.style.display = 'block';
+        }
+        else{
             selectMenu.style.display = 'none';
-        }, 100);
+        }
     });
 
 });

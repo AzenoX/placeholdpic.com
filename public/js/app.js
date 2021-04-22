@@ -1913,6 +1913,7 @@ var form_create_1 = __webpack_require__(/*! ./form_create */ "./resources/js/for
 var selectInputs = document.querySelectorAll('.select_input');
 selectInputs.forEach(function (el) {
   var selectMenu = document.querySelector('#' + el.getAttribute('data-active'));
+  selectMenu.style.display = 'none';
   var selectInputs_Texts = selectMenu.querySelectorAll('p');
   selectInputs_Texts.forEach(function (el_t) {
     el_t.addEventListener('click', function () {
@@ -1920,15 +1921,15 @@ selectInputs.forEach(function (el) {
       el.value = value;
       form_create_1.updateField(document.querySelector("#create-fontUrl"), value);
       preview_1.updatePreview();
+      selectMenu.style.display = 'none';
     });
   });
-  el.addEventListener('focus', function () {
-    selectMenu.style.display = 'block';
-  });
-  el.addEventListener('blur', function () {
-    setTimeout(function () {
+  el.addEventListener('click', function () {
+    if (selectMenu.style.display === 'none') {
+      selectMenu.style.display = 'block';
+    } else {
       selectMenu.style.display = 'none';
-    }, 100);
+    }
   });
 });
 

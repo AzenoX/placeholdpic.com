@@ -27,9 +27,9 @@
     </head>
 
     <body class="bg-gray-800">
-        <header class="bg-gradient-to-tr from-purple-700 to-purple-800 p-32 mb-20">
-            <h1 class="text-5xl text-white font-bold text-center">Placehol<span style="letter-spacing: -12px" class="mr-3">dP</span>ic.com</h1>
-            <p class="text-gray-300 text-xl text-center font-thin">Image placeholders for your website</p>
+        <header class="bg-gradient-to-tr from-purple-700 to-purple-800 py-32 px-4 mb-20">
+            <h1 class="lg:text-5xl text-xl text-white font-bold text-center">Placehol<span class="lg:mr-3 letters-merged">dP</span>ic.com</h1>
+            <p class="text-gray-300 text-md lg:text-md text-center font-thin">Image placeholders for your website</p>
         </header>
 
         <main class="xl:mx-60 pb-20">
@@ -112,7 +112,7 @@
                 <div class="bg-gray-900 text-white py-10 px-6 flex flex-col">
 
                     <!--Form & Preview-->
-                    <div class="flex justify-around mb-10">
+                    <div class="flex justify-around mb-10 flex-col md:flex-row">
                         <div class="flex-1 px-4">
                             <p class="font-bold text-lg">Fill these following fields in order to create your link:</p>
                             <div class="bg-white h-0.5 w-1/4 mb-8 mt-2"></div>
@@ -177,7 +177,7 @@
 
                         </div>
                         <div class="flex-1 px-4">
-                            <div class="preview xl:max-h-80">
+                            <div class="preview xl:max-h-80 flex justify-center">
                                 <img id="preview_img" src="https://placeholdpic.com/600x400?bg=e0e0e0&text=333333&font=https%3A%2F%2Fplaceholdpic.com%2Ffonts%2FMontserrat.ttf&fsize=40&content=%dimensions%" alt="preview">
                             </div>
                         </div>
@@ -190,20 +190,21 @@
                         <div class="bg-white h-0.5 w-1/4 mb-8 mt-2"></div>
 
                         <div class="mb-3">
-                            <p id="create_link" class="font-bold" style="word-wrap: break-word; white-space: pre;">https://placeholdpic.com/<span id="create-width">600</span>x<span id="create-height">400</span>?<span style="white-space: break-spaces;">bg=<span id="create-bgColor">e0e0e0</span>&text=<span
+                            <p id="create_link" class="font-bold whitespace-pre wrap-word">https://placeholdpic.com/<span id="create-width">600</span>x<span id="create-height">400</span>?<span style="white-space: break-spaces;">bg=<span
+                                        id="create-bgColor">e0e0e0</span>&text=<span
                                         id="create-textColor">333333</span>&font=<span
                                         id="create-fontUrl">https://placeholdpic.com/fonts/Montserrat.ttf</span>&fsize=<span id="create-fontSize">40</span>&content=<span id="create-content">%dimensions%</span></span></p>
                         </div>
 
                         <br>
 
-                        <div class="flex justify-between items-center mb-4">
+                        <div class="flex justify-between items-center mb-4 flex-col lg:flex-row">
                             <div class="flex justify-between items-center">
-                                <a id="create-copy-btn" class="py-3 px-6 bg-purple-700 text-white cursor-pointer">Copy Link</a>
+                                <a id="create-copy-btn" class="py-3 px-6 bg-purple-700 text-white cursor-pointer">Copy&nbsp;Link</a>
                                 <p class="mx-4">or</p>
-                                <a id="create-select-btn" class="py-3 px-6 bg-purple-700 text-white cursor-pointer">Select Link</a>
+                                <a id="create-select-btn" class="py-3 px-6 bg-purple-700 text-white cursor-pointer">Select&nbsp;Link</a>
                             </div>
-                            <a id="create-reset-btn" class="py-3 px-6 bg-purple-700 text-white cursor-pointer">Reset Link</a>
+                            <a id="create-reset-btn" class="py-3 px-6 bg-indigo-900 text-white cursor-pointer ml-2 mt-6 lg:mt-0">Reset&nbsp;Link</a>
                         </div>
                     </div>
 
