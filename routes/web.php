@@ -20,3 +20,6 @@ Route::get('/', function () {
 
 Route::get('/{dims}', ['as' => 'api', 'uses' => 'App\Http\Controllers\ApiController@getIndex'])
     ->where('dims', '([0-9]+)x([0-9]+)(\?[a-z0-9&=])*');
+
+Route::get('/i/{dims}', ['as' => 'icon', 'uses' => 'App\Http\Controllers\ApiController@getIcon'])
+    ->where('dims', '([0-9]+)(\?[a-z0-9&=])*');

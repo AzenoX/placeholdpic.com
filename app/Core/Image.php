@@ -14,6 +14,23 @@ class Image{
     private $fontUrl__;
     private $fontSize__;
     private $content__;
+    private $isCircle__;
+
+    /**
+     * @return mixed
+     */
+    public function getIsCircle()
+    {
+        return $this->isCircle__;
+    }
+
+    /**
+     * @param mixed $isCircle__
+     */
+    public function setIsCircle($isCircle__): void
+    {
+        $this->isCircle__ = $isCircle__;
+    }
 
 
     /**
@@ -83,6 +100,8 @@ class Image{
         $content = $this->content__ ?? null;
         if($content === '%dimensions%')
             $content = null;
+        if($content === '%void%')
+            $content = '';
 
         if($this->fontUrl__ !== null && $this->fontUrl__ !== ''){
             if(strpos($this->fontUrl__, '/') !== false){
@@ -116,8 +135,24 @@ class Image{
         }
         $realFontPath = 'fonts/' . $id . '_' . $fontName . "." . $fontExt; //Build font path in folder
         file_put_contents($realFontPath, $font); //Put font in folder
+
         $type_space = imagettfbbox($fontSize, 0, $realFontPath, $text); //Make a box with the text
-        $width_text = abs($type_space[4] - $type_space[0]) + 10; //Calculate box width
+//        $xsize = abs($type_space[0]) + abs($type_space[2]);
+//        $ysize = abs($type_space[5]) + abs($type_space[1]);
+
+        $width_text = abs($type_space[0]) + abs($type_space[2]) - 10; //Calculate box width
+
+
+        //Manage auto size text
+        if($fontSize == -1){
+            while($width_text < ($width - ($width / 8))){
+                $fontSize += 0.2;
+
+                $type_space = imagettfbbox($fontSize, 0, $realFontPath, $text); //Make a box with the text
+                $width_text = abs($type_space[0]) + abs($type_space[2]) - 10; //Calculate box width
+            }
+        }
+
         $x = ($width / 2) - ($width_text / 2); //Get text start x
         $y = ($height / 2) + ($fontSize / 2); //Get text start y
 
