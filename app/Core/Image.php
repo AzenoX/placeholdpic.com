@@ -96,7 +96,7 @@ class Image{
         $width = $this->dimensions__['x'] ?? 400;
         $bgColor = self::convertHexToRGB($this->bgColor__ ?? 'e0e0e0');
         $textColor = self::convertHexToRGB($this->textColor__ ?? '333333');
-        $fontSize = $this->fontSize__ ?? 40;
+        $fontSize = $this->fontSize__ ?? -1;
         $content = $this->content__ ?? null;
         if($content === '%dimensions%')
             $content = null;

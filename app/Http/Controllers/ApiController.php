@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 
 class ApiController extends Controller
 {
+
+
     public static function getIndex(Request $request, $dims)
     {
         $im = new Image;
@@ -35,7 +37,7 @@ class ApiController extends Controller
     }
 
 
-    public static function getIcon(Request $request, $dims)
+    public static function getIcon(Request $request, $dims, $text)
     {
         $im = new Image();
         $im->setDimensions(['x' => $dims, 'y' => $dims]);
@@ -43,9 +45,9 @@ class ApiController extends Controller
         $im->setTextColor($request->input('text'));
         $im->setFontUrl($request->input('font'));
         $im->setFontSize($request->input('fsize'));
-        $im->setIsCircle($request->input('isCircle') ?? 'false');
+        $im->setIsCircle('false');
 
-        $text = urldecode($request->input('content'));
+        $text = urldecode(str_replace('+', ' ', $text));
         $words = explode(' ', $text);
         foreach($words as $i => $word){
             $words[$i] = substr($word, 0, 1);

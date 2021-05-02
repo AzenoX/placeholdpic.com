@@ -39,97 +39,98 @@
             <br>
 
             <!--Docs-->
-            <div class="shadow-lg bg-gray-200">
+            <div>
 
-                <div class="flex justify-between items-center text-lg bg-purple-700 pr-4">
-                    <div class="bg-yellow-600 py-3 px-7 text-white font-bold">GET</div>
-                    <div class="text-white">/<span class="font-bold">WIDTH</span>x<span class="font-bold">HEIGHT</span></div>
-                </div>
+                <div class="shadow-lg mb-6">
+                    <div class="flex justify-between items-center text-lg bg-purple-700 pr-4 slider_header cursor-pointer">
+                        <div class="bg-yellow-600 py-3 px-7 text-white font-bold">GET</div>
+                        <p class="text-left w-full px-4 text-white">Classic Image Placeholder</p>
+                        <div class="text-white">/<span class="text-purple-300 font-bold">WIDTH</span>x<span class="text-purple-300 font-bold">HEIGHT</span></div>
+                    </div>
+                    <div class="bg-gray-900 text-white py-6 px-5 hidden">
 
-                <div class="bg-gray-900 text-white py-6 px-5">
+                        <!--Parameters-->
+                        <div class="mb-10">
 
-                    <!--Parameters-->
-                    <div class="mb-10">
+                            <p class="font-bold text-lg mb-4">Optional Parameters:</p>
 
-                        <p class="font-bold text-lg mb-4">Optional Parameters:</p>
+                            <?php
 
-                        <?php
+                            $parameters = [
+                                [
+                                    'title' => 'bg',
+                                    'desc' => 'Hexadecimal color for background.',
+                                    'default' => 'e0e0e0',
+                                ],
+                                [
+                                    'title' => 'text',
+                                    'desc' => 'Hexadecimal color for text.',
+                                    'default' => '333333',
+                                ],
+                                [
+                                    'title' => 'font',
+                                    'desc' => 'Url for a custom font. Only .ttf are accepted.',
+                                    'default' => 'Montserrat',
+                                ],
+                                [
+                                    'title' => 'fsize',
+                                    'desc' => 'Size for the text',
+                                    'default' => '-1 (Auto fill)',
+                                ],
+                                [
+                                    'title' => 'content',
+                                    'desc' => 'Displayed text',
+                                    'default' => '%dimensions%',
+                                ],
+                            ];
 
-                        $parameters = [
-                            [
-                                'title' => 'bg',
-                                'desc' => 'Hexadecimal color for background.',
-                                'default' => 'e0e0e0',
-                            ],
-                            [
-                                'title' => 'text',
-                                'desc' => 'Hexadecimal color for text.',
-                                'default' => '333333',
-                            ],
-                            [
-                                'title' => 'font',
-                                'desc' => 'Url for a custom font. Only .ttf are accepted.',
-                                'default' => 'Montserrat',
-                            ],
-                            [
-                                'title' => 'fsize',
-                                'desc' => 'Size for the text',
-                                'default' => '40',
-                            ],
-                            [
-                                'title' => 'content',
-                                'desc' => 'Displayed text',
-                                'default' => '%dimensions%',
-                            ],
-                        ];
+                            ?>
 
-                        ?>
-
-                        <?php foreach($parameters as $parameter): ?>
+                            <?php foreach($parameters as $parameter): ?>
                             <div>
                                 <p>
                                     <span class="font-bold text-purple-400"><?= $parameter['title'] ?></span>
-                                ➜ <?= $parameter['desc'] ?>&nbsp;<span class="italic text-gray-400 text-purple-400">Default: <span class="font-bold"><?= $parameter['default'] ?></span></span>
+                                    ➜ <?= $parameter['desc'] ?>&nbsp;<span class="italic text-gray-400 text-purple-400">Default: <span class="font-bold"><?= $parameter['default'] ?></span></span>
                                 </p>
                             </div>
-                        <?php endforeach; ?>
+                            <?php endforeach; ?>
 
-                    </div>
+                        </div>
 
-                    <!--Examples-->
-                    <div>
-                        <?php
+                        <!--Examples-->
+                        <div>
+                            <?php
 
-                        $examples = [
-                            [
-                                'title' => 'Simple Image request 600x400:',
-                                'link' => 'https://placeholdpic.com/600x400',
-                            ],
-                            [
-                                'title' => 'Simple Image request 600x400 with a purple background:',
-                                'link' => 'https://placeholdpic.com/600x400?bg=A78BFA',
-                            ],
-                            [
-                                'title' => 'Simple Image request 600x400 with a custom text:',
-                                'link' => 'https://placeholdpic.com/600x400?content=Hello%20World',
-                            ],
-                            [
-                                'title' => 'Simple Image request 600x400 with a purple background and light text:',
-                                'link' => 'https://placeholdpic.com/600x400?bg=6D28D9&text=e0e0e0',
-                            ],
-                            [
-                                'title' => 'Simple Image request 700x300 with a custom font and a custom text size:',
-                                'link' => 'https://placeholdpic.com/700x300?font=http%3A%2F%2Fplaceholdpic.com%2FZenDots.ttf&fsize=70',
-                            ],
-                        ];
+                            $examples = [
+                                [
+                                    'title' => 'Simple Image request 600x400:',
+                                    'link' => 'https://placeholdpic.com/600x400',
+                                ],
+                                [
+                                    'title' => 'Simple Image request 600x400 with a purple background:',
+                                    'link' => 'https://placeholdpic.com/600x400?bg=A78BFA',
+                                ],
+                                [
+                                    'title' => 'Simple Image request 600x400 with a custom text:',
+                                    'link' => 'https://placeholdpic.com/600x400?content=Hello%20World',
+                                ],
+                                [
+                                    'title' => 'Simple Image request 600x400 with a purple background and light text:',
+                                    'link' => 'https://placeholdpic.com/600x400?bg=6D28D9&text=e0e0e0',
+                                ],
+                                [
+                                    'title' => 'Simple Image request 700x300 with a custom font and a custom text size:',
+                                    'link' => 'https://placeholdpic.com/700x300?font=http%3A%2F%2Fplaceholdpic.com%2Ffonts%2FZenDots.ttf&fsize=70',
+                                ],
+                            ];
 
-                        ?>
+                            ?>
 
 
-                        <p class="font-bold text-lg mb-4">Examples:</p>
+                            <p class="font-bold text-lg mb-4">Examples:</p>
 
-                        <?php foreach($examples as $example): ?>
-                            <div class="mb-10">
+                            <?php foreach($examples as $example): ?>
+                            <div class="mb-20">
                                 <p class="font-bold"><?= $example['title'] ?></p>
                                 <div class="bg-white h-0.5 w-1/4 mb-8 mt-2"></div>
                                 <div class="flex justify-start items-center mt-1 flex-col lg:flex-row">
@@ -137,10 +138,106 @@
                                     <p class="text-purple-400"><a href="<?= $example['link'] ?>" target="_blank" class="whitespace-breakspaces wrap-all"><?= $example['link'] ?></a></p>
                                 </div>
                             </div>
-                        <?php endforeach; ?>
+                            <?php endforeach; ?>
+
+                        </div>
 
                     </div>
+                </div>
 
+                <div class="shadow-lg mb-6">
+                    <div class="flex justify-between items-center text-lg bg-purple-700 pr-4 slider_header cursor-pointer">
+                        <div class="bg-yellow-600 py-3 px-7 text-white font-bold">GET</div>
+                        <p class="text-left w-full px-4 text-white">Initials Icon Placeholder</p>
+                        <div class="text-white">/i/<span class="text-purple-300 font-bold">SIZE</span>/<span class="text-purple-300 font-bold">TEXT</span></div>
+                    </div>
+                    <div class="bg-gray-900 text-white py-6 px-5 hidden">
+
+                        <!--Parameters-->
+                        <div class="mb-10">
+
+                            <p class="font-bold text-lg mb-4">Optional Parameters:</p>
+
+                            <?php
+
+                            $parameters = [
+                                [
+                                    'title' => 'bg',
+                                    'desc' => 'Hexadecimal color for background.',
+                                    'default' => 'e0e0e0',
+                                ],
+                                [
+                                    'title' => 'text',
+                                    'desc' => 'Hexadecimal color for text.',
+                                    'default' => '333333',
+                                ],
+                                [
+                                    'title' => 'font',
+                                    'desc' => 'Url for a custom font. Only .ttf are accepted.',
+                                    'default' => 'Montserrat',
+                                ],
+                                [
+                                    'title' => 'fsize',
+                                    'desc' => 'Size for the text',
+                                    'default' => '-1 (Auto fill)',
+                                ],
+                            ];
+
+                            ?>
+
+                            <?php foreach($parameters as $parameter): ?>
+                            <div>
+                                <p>
+                                    <span class="font-bold text-purple-400"><?= $parameter['title'] ?></span>
+                                    ➜ <?= $parameter['desc'] ?>&nbsp;<span class="italic text-gray-400 text-purple-400">Default: <span class="font-bold"><?= $parameter['default'] ?></span></span>
+                                </p>
+                            </div>
+                            <?php endforeach; ?>
+
+                        </div>
+
+                        <!--Examples-->
+                        <div>
+                            <?php
+
+                            $examples = [
+                                [
+                                    'title' => 'Simple "Alexis Hayat" Icon request 400px:',
+                                    'link' => 'https://placeholdpic.com/i/400/Alexis+Hayat',
+                                ],
+                                [
+                                    'title' => 'Simple "Alexis Hayat" Icon request with a purple background 400px:',
+                                    'link' => 'https://placeholdpic.com/i/400/Alexis+Hayat?bg=A855F7',
+                                ],
+                                [
+                                    'title' => 'Simple "Alexis Hayat" Icon request with a purple background and a white text 400px:',
+                                    'link' => 'https://placeholdpic.com/i/400/Alexis+Hayat?bg=A855F7&text=FFF',
+                                ],
+                                [
+                                    'title' => 'Simple "Alexis Hayat" Icon request 500px with a custom font, a custom text size and a purple text:',
+                                    'link' => 'https://placeholdpic.com/i/500/Alexis+Hayat?font=http%3A%2F%2Fplaceholdpic.com%2Ffonts%2FFira.ttf&fsize=200&text=6B21A8',
+                                ],
+                            ];
+
+                            ?>
+
+
+                            <p class="font-bold text-lg mb-4">Examples:</p>
+
+                            <?php foreach($examples as $example): ?>
+                            <div class="mb-20">
+                                <p class="font-bold"><?= $example['title'] ?></p>
+                                <div class="bg-white h-0.5 w-1/4 mb-8 mt-2"></div>
+                                <div class="flex justify-start items-center mt-1 flex-col lg:flex-row">
+                                    <img class="h-24 mr-10 purple-shadow mb-4 lg:mb-0" alt="Example" src="<?= $example['link'] ?>">
+                                    <p class="text-purple-400"><a href="<?= $example['link'] ?>" target="_blank" class="whitespace-breakspaces wrap-all"><?= $example['link'] ?></a></p>
+                                </div>
+                            </div>
+                            <?php endforeach; ?>
+
+                        </div>
+
+                    </div>
                 </div>
 
             </div>
