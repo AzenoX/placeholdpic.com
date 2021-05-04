@@ -12,9 +12,7 @@ class Image{
     private $bgColor__;
     private $textColor__;
     private $fontUrl__;
-    private $fontSize__;
     private $content__;
-    private $isCircle__;
     private $percent__;
 
     /**
@@ -32,24 +30,6 @@ class Image{
     {
         $this->percent__ = $percent__;
     }
-
-
-    /**
-     * @return mixed
-     */
-    public function getIsCircle()
-    {
-        return $this->isCircle__;
-    }
-
-    /**
-     * @param mixed $isCircle__
-     */
-    public function setIsCircle($isCircle__): void
-    {
-        $this->isCircle__ = $isCircle__;
-    }
-
 
     /**
      * @param mixed $dimensions__
@@ -88,19 +68,11 @@ class Image{
         $this->content__ = $content__;
     }
 
-
     /**
      * @param mixed $fontUrl__
      */
     public function setFontUrl($fontUrl__): void{
         $this->fontUrl__ = $fontUrl__;
-    }
-
-    /**
-     * @param mixed $fontSize__
-     */
-    public function setFontSize($fontSize__): void{
-        $this->fontSize__ = $fontSize__;
     }
 
 
@@ -109,19 +81,23 @@ class Image{
      * Build image
      */
     public function build(){
-        //Init variable from object
+        /*=======================================
+        *       Retrieve variables
+        =======================================*/
         $height = $this->dimensions__['y'] ?? 600;
         $width = $this->dimensions__['x'] ?? 400;
         $bgColor = self::convertHexToRGB($this->bgColor__ ?? 'e0e0e0');
         $textColor = self::convertHexToRGB($this->textColor__ ?? '333333');
-        $fontSize = $this->fontSize__ ?? -1;
-        $percent = $this->percent__ ?? null;
+        $percent = $this->percent__ ?? 90;
+
+        //Text content
         $content = $this->content__ ?? null;
         if($content === '%dimensions%')
             $content = null;
         if($content === '%void%')
             $content = '';
 
+        //Font url
         if($this->fontUrl__ !== null && $this->fontUrl__ !== ''){
             if(strpos($this->fontUrl__, '/') !== false){
                 $fontUrl = $this->fontUrl__;
@@ -139,7 +115,7 @@ class Image{
         $text = ($content === null) ? "$width x $height" : $content;
 
 
-        //Get Text Width
+        //Download Font
         $id = uniqid();
         $parts = explode('/', $fontUrl); //Split font url
         $fontName = explode('.', $parts[count($parts) - 1])[0]; //Get font name
@@ -148,6 +124,7 @@ class Image{
             $font = file_get_contents($fontUrl); //Download Font
         }
         catch(Exception $e){
+            //If cannot download font, then print error
             echo 'Font not found';
             http_response_code(404);
             die();
@@ -156,43 +133,49 @@ class Image{
         file_put_contents($realFontPath, $font); //Put font in folder
 
 
-        //Manage auto size text
+
+
+
+
+        /*=======================================
+        *       Build Image
+        =======================================*/
+        $im = imagecreatetruecolor($width, $height); //Create image
+        $finalBgColor = imagecolorallocate($im, $bgColor['r'], $bgColor['g'], $bgColor['b']); //Define background color
+        $finalTextColor = imagecolorallocate($im, $textColor['r'], $textColor['g'], $textColor['b']); //Define text color
+        imagefilledrectangle($im, 0, 0, $width, $height, $finalBgColor); //Set image background
+
+
+
+
+        /*========Text Auto sizing========*/
+        //If there is text
         if(!empty($text)){
-            $width_text = -1;
-            $realFontSize = 1;
-            if($percent){
-                while($width_text < (($this->percent__ / 100) * $width)){
-                    $realFontSize += 1;
+            $width_text = -1; //Init text width
+            $fontSize = 1; //Init realFont size
 
-                    $type_space = imagettfbbox($realFontSize, 0, $realFontPath, $text); //Make a box with the text
-                    $width_text = abs($type_space[0]) + abs($type_space[2]) - 10; //Calculate box width
-                }
-            }
-            else{
-                while($width_text < ((90 / 100) * $width)){
-                    $realFontSize += 1;
+            while($width_text < (($percent / 100) * $width)){
+                $fontSize += 1;
 
-                    $type_space = imagettfbbox($realFontSize, 0, $realFontPath, $text); //Make a box with the text
-                    $width_text = abs($type_space[0]) + abs($type_space[2]) - 10; //Calculate box width
-                }
+                $type_space = imagettfbbox($fontSize, 0, $realFontPath, $text); //Make a box with the text
+                $width_text = abs($type_space[0]) + abs($type_space[2]) - 10; //Calculate box width
             }
+
             $x = ($width / 2) - ($width_text / 2);
-            $y = ($height / 2) + ($realFontSize / 2);
-
-            $fontSize = $realFontSize;
+            $y = ($height / 2) + ($fontSize / 2);
         }
+        //Else, using %void%
         else{
             $x = 0;
             $y = 0;
         }
 
 
-        //Build Image
-        $im = imagecreatetruecolor($width, $height); //Create image
-        $finalBgColor = imagecolorallocate($im, $bgColor['r'], $bgColor['g'], $bgColor['b']); //Define background color
-        $finalTextColor = imagecolorallocate($im, $textColor['r'], $textColor['g'], $textColor['b']); //Define text color
-        imagefilledrectangle($im, 0, 0, $width, $height, $finalBgColor); //Set image background
-        imagettftext($im, $fontSize, 0, $x, $y, $finalTextColor, $realFontPath, $text ); //Set image text
+        //Apply text
+        imagettftext($im, $fontSize ?? 0, 0, $x, $y, $finalTextColor, $realFontPath, $text); //Set image text
+
+
+
 
         unlink($realFontPath); //Delete font from folder
 

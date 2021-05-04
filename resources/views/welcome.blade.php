@@ -63,7 +63,7 @@
                                     'default' => 'e0e0e0',
                                 ],
                                 [
-                                    'title' => 'text',
+                                    'title' => 'color',
                                     'desc' => 'Hexadecimal color for text.',
                                     'default' => '333333',
                                 ],
@@ -73,12 +73,12 @@
                                     'default' => 'Montserrat',
                                 ],
                                 [
-                                    'title' => 'fsize',
-                                    'desc' => 'Size for the text',
-                                    'default' => '-1 (Auto fill)',
+                                    'title' => 'size',
+                                    'desc' => 'Size of the text in percent relative to the image',
+                                    'default' => '90',
                                 ],
                                 [
-                                    'title' => 'content',
+                                    'title' => 'text',
                                     'desc' => 'Displayed text',
                                     'default' => '%dimensions%',
                                 ],
@@ -112,15 +112,15 @@
                                 ],
                                 [
                                     'title' => 'Simple Image request 600x400 with a custom text:',
-                                    'link' => 'https://placeholdpic.com/600x400?content=Hello%20World',
+                                    'link' => 'https://placeholdpic.com/600x400?text=Hello%20World',
                                 ],
                                 [
                                     'title' => 'Simple Image request 600x400 with a purple background and light text:',
-                                    'link' => 'https://placeholdpic.com/600x400?bg=6D28D9&text=e0e0e0',
+                                    'link' => 'https://placeholdpic.com/600x400?bg=6D28D9&color=e0e0e0',
                                 ],
                                 [
                                     'title' => 'Simple Image request 700x300 with a custom font and a custom text size:',
-                                    'link' => 'https://placeholdpic.com/700x300?font=http%3A%2F%2Fplaceholdpic.com%2Ffonts%2FZenDots.ttf&fsize=70',
+                                    'link' => 'https://placeholdpic.com/700x300?font=http%3A%2F%2Fplaceholdpic.com%2Ffonts%2FZenDots.ttf&size=70',
                                 ],
                             ];
 
@@ -167,7 +167,7 @@
                                     'default' => 'e0e0e0',
                                 ],
                                 [
-                                    'title' => 'text',
+                                    'title' => 'color',
                                     'desc' => 'Hexadecimal color for text.',
                                     'default' => '333333',
                                 ],
@@ -177,9 +177,14 @@
                                     'default' => 'Montserrat',
                                 ],
                                 [
-                                    'title' => 'fsize',
-                                    'desc' => 'Size for the text',
-                                    'default' => '-1 (Auto fill)',
+                                    'title' => 'size',
+                                    'desc' => 'Size of the text in percent relative to the image',
+                                    'default' => '90',
+                                ],
+                                [
+                                    'title' => 'text',
+                                    'desc' => 'Displayed text',
+                                    'default' => 'null',
                                 ],
                             ];
 
@@ -211,11 +216,11 @@
                                 ],
                                 [
                                     'title' => 'Simple "Alexis Hayat" Icon request with a purple background and a white text 400px:',
-                                    'link' => 'https://placeholdpic.com/i/400/Alexis+Hayat?bg=A855F7&text=FFF',
+                                    'link' => 'https://placeholdpic.com/i/400/Alexis+Hayat?bg=A855F7&color=FFF',
                                 ],
                                 [
                                     'title' => 'Simple "Alexis Hayat" Icon request 500px with a custom font, a custom text size and a purple text:',
-                                    'link' => 'https://placeholdpic.com/i/500/Alexis+Hayat?font=http%3A%2F%2Fplaceholdpic.com%2Ffonts%2FFira.ttf&fsize=200&text=6B21A8',
+                                    'link' => 'https://placeholdpic.com/i/500/Alexis+Hayat?font=http%3A%2F%2Fplaceholdpic.com%2Ffonts%2FFira.ttf&percent=70&color=6B21A8',
                                 ],
                             ];
 
