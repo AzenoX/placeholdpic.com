@@ -256,6 +256,15 @@
                     <!--Form & Preview-->
                     <div class="flex justify-around mb-10 flex-col md:flex-row">
                         <div class="flex-1 px-4">
+
+                            <div class="mb-8">
+                                <p>Image dimensions</p>
+                                <div class="flex justify-between items-center">
+                                    <label for="isIcon">Is Icon ?</label>
+                                    <input type="checkbox" name="isIcon" id="isIcon" class="">
+                                </div>
+                            </div>
+
                             <p class="font-bold text-lg">Fill these following fields in order to create your link:</p>
                             <div class="bg-white h-0.5 w-1/4 mb-8 mt-2"></div>
 

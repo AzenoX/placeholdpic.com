@@ -18,6 +18,7 @@ class ApiController extends Controller
         $im->setTextColor($request->input('text'));
         $im->setFontUrl($request->input('font'));
         $im->setFontSize($request->input('fsize'));
+        $im->setPercent($request->input('percent'));
         $im->setContent($request->input('content'));
 
         $content = view('api.index', [
@@ -45,6 +46,7 @@ class ApiController extends Controller
         $im->setTextColor($request->input('text'));
         $im->setFontUrl($request->input('font'));
         $im->setFontSize($request->input('fsize'));
+        $im->setPercent($request->input('percent'));
         $im->setIsCircle('false');
 
         $text = urldecode(str_replace('+', ' ', $text));

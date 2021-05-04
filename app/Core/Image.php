@@ -15,6 +15,24 @@ class Image{
     private $fontSize__;
     private $content__;
     private $isCircle__;
+    private $percent__;
+
+    /**
+     * @return mixed
+     */
+    public function getPercent()
+    {
+        return $this->percent__;
+    }
+
+    /**
+     * @param mixed $percent__
+     */
+    public function setPercent($percent__): void
+    {
+        $this->percent__ = $percent__;
+    }
+
 
     /**
      * @return mixed
@@ -97,6 +115,7 @@ class Image{
         $bgColor = self::convertHexToRGB($this->bgColor__ ?? 'e0e0e0');
         $textColor = self::convertHexToRGB($this->textColor__ ?? '333333');
         $fontSize = $this->fontSize__ ?? -1;
+        $percent = $this->percent__ ?? null;
         $content = $this->content__ ?? null;
         if($content === '%dimensions%')
             $content = null;
@@ -117,7 +136,7 @@ class Image{
 
 
         //Set text
-        $text = $content ?? "$width x $height";
+        $text = ($content === null) ? "$width x $height" : $content;
 
 
         //Get Text Width
@@ -133,28 +152,39 @@ class Image{
             http_response_code(404);
             die();
         }
-        $realFontPath = 'fonts/' . $id . '_' . $fontName . "." . $fontExt; //Build font path in folder
+        $realFontPath = './fonts/' . $id . '_' . $fontName . "." . $fontExt; //Build font path in folder
         file_put_contents($realFontPath, $font); //Put font in folder
-
-        $type_space = imagettfbbox($fontSize, 0, $realFontPath, $text); //Make a box with the text
-//        $xsize = abs($type_space[0]) + abs($type_space[2]);
-//        $ysize = abs($type_space[5]) + abs($type_space[1]);
-
-        $width_text = abs($type_space[0]) + abs($type_space[2]) - 10; //Calculate box width
 
 
         //Manage auto size text
-        if($fontSize == -1){
-            while($width_text < ($width - ($width / 8))){
-                $fontSize += 0.2;
+        if(!empty($text)){
+            $width_text = -1;
+            $realFontSize = 1;
+            if($percent){
+                while($width_text < (($this->percent__ / 100) * $width)){
+                    $realFontSize += 1;
 
-                $type_space = imagettfbbox($fontSize, 0, $realFontPath, $text); //Make a box with the text
-                $width_text = abs($type_space[0]) + abs($type_space[2]) - 10; //Calculate box width
+                    $type_space = imagettfbbox($realFontSize, 0, $realFontPath, $text); //Make a box with the text
+                    $width_text = abs($type_space[0]) + abs($type_space[2]) - 10; //Calculate box width
+                }
             }
-        }
+            else{
+                while($width_text < ((90 / 100) * $width)){
+                    $realFontSize += 1;
 
-        $x = ($width / 2) - ($width_text / 2); //Get text start x
-        $y = ($height / 2) + ($fontSize / 2); //Get text start y
+                    $type_space = imagettfbbox($realFontSize, 0, $realFontPath, $text); //Make a box with the text
+                    $width_text = abs($type_space[0]) + abs($type_space[2]) - 10; //Calculate box width
+                }
+            }
+            $x = ($width / 2) - ($width_text / 2);
+            $y = ($height / 2) + ($realFontSize / 2);
+
+            $fontSize = $realFontSize;
+        }
+        else{
+            $x = 0;
+            $y = 0;
+        }
 
 
         //Build Image
