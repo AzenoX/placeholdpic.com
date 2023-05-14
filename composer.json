@@ -7,21 +7,21 @@
     "require": {
         "php": "^7.3|^8.0",
         "ext-gd": "*",
-        "fideloper/proxy": "^4.4",
-        "fruitcake/laravel-cors": "^2.0",
+        "fideloper/proxy": "^4.4.2",
+        "fruitcake/laravel-cors": "^2.2",
         "guzzlehttp/guzzle": "7.4.5",
-        "guzzlehttp/psr7": "2.4",
-        "laravel/framework": "^8.12",
-        "laravel/tinker": "^2.5",
+        "guzzlehttp/psr7": "2.4.5",
+        "laravel/framework": "^8.83.27",
+        "laravel/tinker": "^2.8.1",
         "symfony/http-kernel": "5.4.20"
     },
     "require-dev": {
-        "facade/ignition": "^2.5",
-        "fakerphp/faker": "^1.9.1",
-        "laravel/sail": "^1.0.1",
-        "mockery/mockery": "^1.4.2",
-        "nunomaduro/collision": "^5.0",
-        "phpunit/phpunit": "^9.3.3"
+        "facade/ignition": "^2.17.7",
+        "fakerphp/faker": "^1.21",
+        "laravel/sail": "^1.21.2",
+        "mockery/mockery": "^1.5.1",
+        "nunomaduro/collision": "^5.11",
+        "phpunit/phpunit": "^9.6.4"
     },
     "autoload": {
         "psr-4": {
