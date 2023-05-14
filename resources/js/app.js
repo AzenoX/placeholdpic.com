@@ -80,7 +80,7 @@ resetFields(formInputs);
 =======================================*/
 const preview_img = document.querySelector('#preview_img');
 preview_img.addEventListener('error', () => {
-    preview_img.src = 'https://placeholdpic.com/600x400?content=???';
+    preview_img.src = 'https://placeholdpic.alexishayat.me/600x400?content=???';
 });
 
 
@@ -119,8 +119,8 @@ createBtnSelect.addEventListener('click', () => {
     }
 });
 createBtnReset.addEventListener('click', () => {
-    createLink.innerHTML = 'https://placeholdpic.com/<span id="create-width">600</span>x<span id="create-height">400</span>?<span style="white-space: break-spaces;">bg=<span id="create-bgColor">e0e0e0</span>&text=<span id="create-textColor">333333</span>&font=<span' +
-        ' id="create-fontUrl">https://placeholdpic.com/fonts/Montserrat.ttf</span>&fsize=<span id="create-fontSize">40</span>&content=<span id="create-content">%dimensions%</span></span>';
+    createLink.innerHTML = 'https://placeholdpic.alexishayat.me/<span id="create-width">600</span>x<span id="create-height">400</span>?<span style="white-space: break-spaces;">bg=<span id="create-bgColor">e0e0e0</span>&text=<span id="create-textColor">333333</span>&font=<span' +
+        ' id="create-fontUrl">https://placeholdpic.alexishayat.me/fonts/Montserrat.ttf</span>&fsize=<span id="create-fontSize">40</span>&content=<span id="create-content">%dimensions%</span></span>';
 
     formInputs.forEach((el) => {
         el.value = '';

@@ -107,7 +107,7 @@ class Image{
             }
         }
         else{
-            $fontUrl = 'https://placeholdpic.com/fonts/Montserrat.ttf';
+            $fontUrl = 'https://placeholdpic.alexishayat.me/fonts/Montserrat.ttf';
         }
 
 

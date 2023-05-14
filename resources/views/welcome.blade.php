@@ -6,7 +6,7 @@
 
         <meta name="description" content="Image placeholders for your website. Customize everything, like text, colors, font, etc...">
 
-        <title>PlaceholdPic.com</title>
+        <title>PlaceholdPic</title>
 
         <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
@@ -30,7 +30,7 @@
 
     <body class="bg-gray-800">
         <header class="bg-gradient-to-tr from-purple-700 to-purple-800 py-32 px-4 mb-20">
-            <h1 class="lg:text-5xl text-xl text-white font-bold text-center">Placehol<span class="lg:mr-3 letters-merged">dP</span>ic.com</h1>
+            <h1 class="lg:text-5xl text-xl text-white font-bold text-center">Placehol<span class="lg:mr-3 letters-merged">dP</span>ic</h1>
             <p class="text-gray-300 text-md lg:text-md text-center font-thin">Image placeholders for your website</p>
         </header>
 
@@ -104,23 +104,23 @@
                             $examples = [
                                 [
                                     'title' => 'Simple Image request 600x400:',
-                                    'link' => 'https://placeholdpic.com/600x400',
+                                    'link' => 'https://placeholdpic.alexishayat.me/600x400',
                                 ],
                                 [
                                     'title' => 'Simple Image request 600x400 with a purple background:',
-                                    'link' => 'https://placeholdpic.com/600x400?bg=A78BFA',
+                                    'link' => 'https://placeholdpic.alexishayat.me/600x400?bg=A78BFA',
                                 ],
                                 [
                                     'title' => 'Simple Image request 600x400 with a custom text:',
-                                    'link' => 'https://placeholdpic.com/600x400?text=Hello%20World',
+                                    'link' => 'https://placeholdpic.alexishayat.me/600x400?text=Hello%20World',
                                 ],
                                 [
                                     'title' => 'Simple Image request 600x400 with a purple background and light text:',
-                                    'link' => 'https://placeholdpic.com/600x400?bg=6D28D9&color=e0e0e0',
+                                    'link' => 'https://placeholdpic.alexishayat.me/600x400?bg=6D28D9&color=e0e0e0',
                                 ],
                                 [
                                     'title' => 'Simple Image request 700x300 with a custom font and a custom text size:',
-                                    'link' => 'https://placeholdpic.com/700x300?font=http%3A%2F%2Fplaceholdpic.com%2Ffonts%2FZenDots.ttf&size=70',
+                                    'link' => 'https://placeholdpic.alexishayat.me/700x300?font=http%3A%2F%2Fplaceholdpic.alexishayat.me%2Ffonts%2FZenDots.ttf&size=70',
                                 ],
                             ];
 
@@ -208,19 +208,19 @@
                             $examples = [
                                 [
                                     'title' => 'Simple "Alexis Hayat" Icon request 400px:',
-                                    'link' => 'https://placeholdpic.com/i/400/Alexis+Hayat',
+                                    'link' => 'https://placeholdpic.alexishayat.me/i/400/Alexis+Hayat',
                                 ],
                                 [
                                     'title' => 'Simple "Alexis Hayat" Icon request with a purple background 400px:',
-                                    'link' => 'https://placeholdpic.com/i/400/Alexis+Hayat?bg=A855F7',
+                                    'link' => 'https://placeholdpic.alexishayat.me/i/400/Alexis+Hayat?bg=A855F7',
                                 ],
                                 [
                                     'title' => 'Simple "Alexis Hayat" Icon request with a purple background and a white text 400px:',
-                                    'link' => 'https://placeholdpic.com/i/400/Alexis+Hayat?bg=A855F7&color=FFF',
+                                    'link' => 'https://placeholdpic.alexishayat.me/i/400/Alexis+Hayat?bg=A855F7&color=FFF',
                                 ],
                                 [
                                     'title' => 'Simple "Alexis Hayat" Icon request 500px with a custom font, a custom text size and a purple text:',
-                                    'link' => 'https://placeholdpic.com/i/500/Alexis+Hayat?font=http%3A%2F%2Fplaceholdpic.com%2Ffonts%2FFira.ttf&percent=70&color=6B21A8',
+                                    'link' => 'https://placeholdpic.alexishayat.me/i/500/Alexis+Hayat?font=http%3A%2F%2Fplaceholdpic.alexishayat.me%2Ffonts%2FFira.ttf&percent=70&color=6B21A8',
                                 ],
                             ];
 
@@ -308,19 +308,19 @@
                                 <div class="mr-2" style="flex: 5;">
                                     <p>Font url</p>
                                     <div class="relative">
-                                        <input type="text" data-active="select_url" name="fontUrl" placeholder="Font Url (Only .ttf)" data-default="https://placeholdpic.com/fonts/Montserrat.ttf" class="select_input form-input outline-none text-black py-2 px-2 w-full">
+                                        <input type="text" data-active="select_url" name="fontUrl" placeholder="Font Url (Only .ttf)" data-default="https://placeholdpic.alexishayat.me/fonts/Montserrat.ttf" class="select_input form-input outline-none text-black py-2 px-2 w-full">
                                         <div id="select_url" class="absolute bg-gray-50 py-3 px-2 w-full hidden">
-                                            <p class="text-black cursor-pointer w-full" data-value="https://placeholdpic.com/fonts/Montserrat.ttf">Montserrat</p>
+                                            <p class="text-black cursor-pointer w-full" data-value="https://placeholdpic.alexishayat.me/fonts/Montserrat.ttf">Montserrat</p>
                                             <div class="bg-black w-full my-4" style="height: 1px;"></div>
-                                            <p class="text-black cursor-pointer w-full" data-value="https://placeholdpic.com/fonts/OpenSans.ttf">OpenSans</p>
+                                            <p class="text-black cursor-pointer w-full" data-value="https://placeholdpic.alexishayat.me/fonts/OpenSans.ttf">OpenSans</p>
                                             <div class="bg-black w-full my-4" style="height: 1px;"></div>
-                                            <p class="text-black cursor-pointer w-full" data-value="https://placeholdpic.com/fonts/Raleway.ttf">Raleway</p>
+                                            <p class="text-black cursor-pointer w-full" data-value="https://placeholdpic.alexishayat.me/fonts/Raleway.ttf">Raleway</p>
                                             <div class="bg-black w-full my-4" style="height: 1px;"></div>
-                                            <p class="text-black cursor-pointer w-full" data-value="https://placeholdpic.com/fonts/Roboto.ttf">Roboto</p>
+                                            <p class="text-black cursor-pointer w-full" data-value="https://placeholdpic.alexishayat.me/fonts/Roboto.ttf">Roboto</p>
                                             <div class="bg-black w-full my-4" style="height: 1px;"></div>
-                                            <p class="text-black cursor-pointer w-full" data-value="https://placeholdpic.com/fonts/ZenDots.ttf">ZenDots</p>
+                                            <p class="text-black cursor-pointer w-full" data-value="https://placeholdpic.alexishayat.me/fonts/ZenDots.ttf">ZenDots</p>
                                             <div class="bg-black w-full my-4" style="height: 1px;"></div>
-                                            <p class="text-black cursor-pointer w-full" data-value="https://placeholdpic.com/fonts/Fira.ttf">Fira</p>
+                                            <p class="text-black cursor-pointer w-full" data-value="https://placeholdpic.alexishayat.me/fonts/Fira.ttf">Fira</p>
                                         </div>
                                     </div>
                                 </div>
@@ -337,7 +337,7 @@
                         <!--Preview-->
                         <div class="flex-1 px-4">
                             <div class="preview xl:max-h-80 flex justify-center">
-                                <img id="preview_img" src="https://placeholdpic.com/600x400?bg=e0e0e0&text=333333&font=https%3A%2F%2Fplaceholdpic.com%2Ffonts%2FMontserrat.ttf&fsize=40&content=%dimensions%" alt="preview" class="w-full h-80 object-contain">
+                                <img id="preview_img" src="https://placeholdpic.alexishayat.me/600x400?bg=e0e0e0&text=333333&font=https%3A%2F%2Fplaceholdpic.alexishayat.me%2Ffonts%2FMontserrat.ttf&fsize=40&content=%dimensions%" alt="preview" class="w-full h-80 object-contain">
                             </div>
                         </div>
                     </div>
@@ -349,10 +349,10 @@
                         <div class="bg-white h-0.5 w-1/4 mb-8 mt-2"></div>
 
                         <div class="mb-3">
-                            <p id="create_link" class="font-bold whitespace-pre wrap-word">https://placeholdpic.com/<span id="create-width">600</span>x<span id="create-height">400</span>?<span class="whitespace-breakspaces">bg=<span
+                            <p id="create_link" class="font-bold whitespace-pre wrap-word">https://placeholdpic.alexishayat.me/<span id="create-width">600</span>x<span id="create-height">400</span>?<span class="whitespace-breakspaces">bg=<span
                                         id="create-bgColor">e0e0e0</span>&text=<span
                                         id="create-textColor">333333</span>&font=<span
-                                        id="create-fontUrl">https://placeholdpic.com/fonts/Montserrat.ttf</span>&fsize=<span id="create-fontSize">40</span>&content=<span id="create-content">%dimensions%</span></span></p>
+                                        id="create-fontUrl">https://placeholdpic.alexishayat.me/fonts/Montserrat.ttf</span>&fsize=<span id="create-fontSize">40</span>&content=<span id="create-content">%dimensions%</span></span></p>
                         </div>
 
                         <br>
@@ -379,7 +379,7 @@
                 </p>
                 <p>&nbsp;-&nbsp;</p>
                 <p>
-                    See on <a href="https://github.com/AzenoX/placeholdpic.com" target="_blank"><svg id="github-svg" fill="#fff" class="ml-1 h-10 inline" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>GitHub icon</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg></a>
+                    See on <a href="https://github.com/AzenoX/placeholdpic.alexishayat.me" target="_blank"><svg id="github-svg" fill="#fff" class="ml-1 h-10 inline" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>GitHub icon</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg></a>
                 </p>
             </div>
         </footer>
